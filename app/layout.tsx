@@ -4,7 +4,7 @@ import ThemeProvider from "../context/Theme";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/ui/Navigation/Navbar/Navbar";
+import Navbar from "@/components/navigation/navbar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
