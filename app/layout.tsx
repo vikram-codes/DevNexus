@@ -5,6 +5,10 @@ import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navigation/navbar";
+import { Toaster } from "@/components/ui/toast";
+import { ReactNode } from "react";
+import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,18 +32,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+async function RootLayout({ children }: { children: ReactNode }) {
+  const session = await auth();
   return (
     <html
       suppressHydrationWarning
       lang="en"
       className={cn("h-full", "antialiased", inter.className, spaceGrotesk.variable, "font-sans", geist.variable)}
     >
-      <body className="flex min-h-full flex-col">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
+      <SessionProvider session={session}>
+        <body className="flex min-h-full flex-col">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+          </ThemeProvider>
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 }
+
+export default RootLayout;
