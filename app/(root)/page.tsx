@@ -1,20 +1,7 @@
-import { signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
-import ROUTES from "@/constants/routes";
-
 async function page() {
   return (
     <>
       <h1 className="font-inter pt-25 text-3xl font-bold">DevNexus</h1>
-      <form
-        className="px-10 pt-25"
-        action={async () => {
-          "use server";
-          await signOut({ redirectTo: ROUTES.SIGN_IN });
-        }}
-      >
-        <Button type="submit">Log out</Button>
-      </form>
     </>
   );
 }
