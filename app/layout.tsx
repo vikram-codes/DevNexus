@@ -4,7 +4,6 @@ import ThemeProvider from "../context/Theme";
 import "./globals.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navigation/navbar";
 import { Toaster } from "@/components/ui/toast";
 import { ReactNode } from "react";
 import { auth } from "@/auth";

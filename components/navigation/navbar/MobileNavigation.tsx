@@ -10,7 +10,7 @@ const MobileNavigation = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Image src="/icons/hamburger.svg" width={36} height={36} alt="Menu" className="invert-colors sm:hidden" />
+        <Image src="/icons/hamburger.svg" width={36} height={36} alt="Menu" className="invert-colors md:hidden" />
       </SheetTrigger>
       <SheetContent side="left" className="background-light900_dark200 border-none">
         <SheetTitle className="hidden">Navigation</SheetTitle>
