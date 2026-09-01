@@ -40,6 +40,9 @@ async function RootLayout({ children }: { children: ReactNode }) {
       className={cn("h-full", "antialiased", inter.className, spaceGrotesk.variable, "font-sans", geist.variable)}
     >
       <SessionProvider session={session}>
+        <head>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css" />
+        </head>
         <body className="flex min-h-full flex-col">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}
